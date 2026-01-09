@@ -1,0 +1,357 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  min-height: 70vh;
+}
+
+.container h1 {
+  font-size: 2.8rem;
+  margin-bottom: 2rem;
+  color: var(--text-primary);
+  text-align: center;
+  line-height: 1.2;
+  word-wrap: break-word;
+}
+
+/* Poster et infos principales */
+.movieHeader {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.posterContainer {
+  flex-shrink: 0;
+}
+
+.poster {
+  width: 300px;
+  height: auto;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  object-fit: cover;
+}
+
+.movieInfo {
+  flex: 1;
+  min-width: 300px;
+}
+
+.movieInfo p {
+  margin-bottom: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  font-size: 1.1rem;
+}
+
+.movieInfo p:first-of-type {
+  font-size: 1.3rem;
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.rating {
+  font-size: 1.5rem;
+  color: var(--accent);
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.rating::before {
+  content: '⭐';
+}
+
+.releaseDate {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+}
+
+/* Trailer */
+.trailerContainer {
+  margin: 3rem 0;
+  text-align: center;
+}
+
+.trailerContainer h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  color: var(--text-primary);
+}
+
+.trailer {
+  width: 100%;
+  max-width: 800px;
+  height: 450px;
+  border-radius: var(--radius);
+  border: 2px solid var(--border-color);
+  margin: 0 auto;
+}
+
+/* Sections Acteurs et Films Similaires */
+.actors, .similar {
+  margin: 3rem 0;
+  padding: 2rem;
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  border: 1px solid var(--border-color);
+}
+
+.actors h2, .similar h2 {
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+  color: var(--text-primary);
+  border-bottom: 2px solid var(--accent);
+  padding-bottom: 0.5rem;
+  display: inline-block;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.grid div {
+  text-align: center;
+  transition: var(--transition);
+  background: var(--secondary);
+  border-radius: 10px;
+  padding: 1rem;
+  border: 1px solid transparent;
+}
+
+.grid div:hover {
+  transform: translateY(-5px);
+  border-color: var(--accent);
+}
+
+.grid img {
+  width: 100%;
+  height: 225px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 0.8rem;
+  border: 2px solid transparent;
+  transition: var(--transition);
+}
+
+.grid div:hover img {
+  border-color: var(--accent);
+}
+
+.grid p {
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  font-weight: 500;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* Bouton Wishlist */
+.wishlistButtonContainer {
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.wishlistButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 1rem 2rem;
+  background: linear-gradient(90deg, var(--accent), var(--accent-hover));
+  border: none;
+  border-radius: 50px;
+  color: rgb(255, 255, 255);
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+}
+
+.wishlistButton:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+}
+
+.wishlistButton.added {
+  background: linear-gradient(90deg, var(--danger), #dc2626);
+}
+.wishlistButton.added:hover {
+  background: linear-gradient(90deg, #b91c1c, #991b1b);
+}
+
+
+
+/* Media Queries MovieDetail */
+@media (max-width: 1200px) {
+  .grid {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  }
+  
+  .grid img {
+    height: 210px;
+  }
+}
+
+@media (max-width: 992px) {
+  .container h1 {
+    font-size: 2.4rem;
+  }
+  
+  .movieHeader {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .poster {
+    width: 280px;
+  }
+  
+  .trailer {
+    height: 400px;
+  }
+  
+  .actors, .similar {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem 0.5rem;
+  }
+  
+  .container h1 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .poster {
+    width: 250px;
+  }
+  
+  .movieInfo p {
+    font-size: 1rem;
+  }
+  
+  .rating {
+    font-size: 1.3rem;
+  }
+  
+  .trailerContainer {
+    margin: 2rem 0;
+  }
+  
+  .trailerContainer h2 {
+    font-size: 1.6rem;
+  }
+  
+  .trailer {
+    height: 350px;
+  }
+  
+  .actors h2, .similar h2 {
+    font-size: 1.6rem;
+  }
+  
+  .grid {
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    gap: 1rem;
+  }
+  
+  .grid img {
+    height: 195px;
+  }
+  
+  .grid div {
+    padding: 0.8rem;
+  }
+  
+  .wishlistButton {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .container h1 {
+    font-size: 1.8rem;
+  }
+  
+  .poster {
+    width: 220px;
+  }
+  
+  .movieInfo {
+    min-width: 100%;
+  }
+  
+  .trailer {
+    height: 280px;
+  }
+  
+  .actors, .similar {
+    padding: 1rem;
+    margin: 2rem 0;
+  }
+  
+  .actors h2, .similar h2 {
+    font-size: 1.4rem;
+  }
+  
+  .grid {
+    grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+  }
+  
+  .grid img {
+    height: 165px;
+  }
+  
+  .grid p {
+    font-size: 0.8rem;
+  }
+  
+  .wishlistButton {
+    width: 100%;
+    max-width: 300px;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 400px) {
+  .container h1 {
+    font-size: 1.6rem;
+  }
+  
+  .poster {
+    width: 200px;
+  }
+  
+  .trailer {
+    height: 220px;
+  }
+  
+  .grid {
+    grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+    gap: 0.75rem;
+  }
+  
+  .grid img {
+    height: 135px;
+  }
+  
+  .grid div {
+    padding: 0.6rem;
+  }
+  
+  .grid p {
+    font-size: 0.75rem;
+  }
+}
